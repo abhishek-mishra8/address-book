@@ -14,11 +14,30 @@ jobs :
           - name: checkout code
             uses: actions/checkout@v4
           - run: 
-             sh ls
+                ls
           - name: update dependecies
             uses: actions/setup-node@v4
             with:
               node-version: '20.0'
           - run: npm ci
+    second-job:
+        runs-on: ubuntu-latest
+        steps:
+          - name: deploy to ec3
+            run : |
+              echo this is the second job running in sequence ${{github.second}}
+              echo this is the second job running in sequence ${{github.second}}
+              echo this is the second job running in sequence ${{github.second}}
+    third-job:
+        needs: second-job
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploy to ec3 third
+              run : |
+                echo this is the second job running in sequence ${{github.second}}
+                echo this is the second job running in sequence ${{github.second}}
+                echo this is the second job running in sequence ${{github.second}}
+        
+                 
 
 
