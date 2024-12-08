@@ -1,0 +1,24 @@
+name : address-book deployement 
+on :
+  push: 
+jobs :
+    first-job :
+        runs-on: ubuntu-22.04
+        steps:
+          - name: echo
+            run : |
+                echo this is the first message
+                echo this is the second message
+                echo this is the third message 
+
+          - name: checkout code
+            uses: actions/checkout@v4
+          - run: 
+             sh ls
+          - name: update dependecies
+            uses: actions/setup-node@v4
+            with:
+              node-version: '20.0'
+          - run: npm ci
+
+
