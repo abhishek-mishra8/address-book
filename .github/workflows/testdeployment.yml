@@ -14,7 +14,7 @@ jobs :
           - name: checkout code
             uses: actions/checkout@v4
           - run: 
-             sh ls
+               ls
           - name: update dependecies
             uses: actions/setup-node@v4
             with:
