@@ -1,0 +1,19 @@
+name: workflow-with-functions
+on :
+  pull_request:
+  workflow_dispatch:      ßß
+jobs:
+    echo :
+        runs-on: ubuntu-latest
+        steps:
+          - name: Failure
+            run: exit 1
+          - name: I will not run
+            if: success()
+            run: echo I will not print
+          - name: I will execute on failure
+            if: failure()
+            run: echo I will run on failure
+          - name: I will run on always
+            if: always()
+            run: echo I will run by default
