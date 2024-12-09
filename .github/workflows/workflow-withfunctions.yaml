@@ -1,7 +1,7 @@
 name: workflow-with-functions
 on :
   pull_request:
-  workflow_dispatch:      ßß
+  workflow_dispatch:
 jobs:
     echo :
         runs-on: ubuntu-latest
