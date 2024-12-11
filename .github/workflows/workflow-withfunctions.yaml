@@ -2,14 +2,19 @@ name: workflow-with-functions
 on :
   pull_request:
   workflow_dispatch:
+    inputs:
+      dry-run:
+        type:
+      targe
+
 jobs:
     echo :
         runs-on: ubuntu-latest
         steps:
           - name: Failure
             run: exit 1
-          - name: I will not run
-            if: success()
+          - name: I will not run    
+            if: ${{success()}}
             run: echo I will not print
           - name: I will execute on failure
             if: failure()

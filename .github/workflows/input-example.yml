@@ -1,0 +1,21 @@
+name: input-demo 
+on: 
+    workflow_dispatch:
+        inputs:
+            dry-run :
+                type: boolean
+                description: "this is a test"
+            target :
+                type: string
+                description: "this is a test target"
+            tag :
+              type: choice
+              options:
+                  - v1
+                  - v2
+jobs:
+   input-demo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: step-1
+              run: echo this is a ${{inputs.dry-run}} and deployed to target ${{inputs.target}} and tag selected as ${{inputs.tag}}

@@ -1,8 +1,13 @@
 name : address-book deployement 
 on :
-  push: 
+  push:
+  workflow_call:   
+concurrency: 
+  group: first-group  
 jobs :
     first-job :
+        concurrency: 
+          group:  job level 
         runs-on: ubuntu-22.04
         steps:
           - name: echo
