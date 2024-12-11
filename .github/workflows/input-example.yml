@@ -18,4 +18,21 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: step-1
-              run: echo this is a ${{inputs.dry-run}} and deployed to target ${{inputs.target}} and tag selected as ${{inputs.tag}}
+              run: echo this is a ${{inputs.dry-run}}
+   output-demo:
+        runs-on: ubuntu-latest    
+        steps:
+            - name : build
+              id: build
+              run: echo "status=succes" >> $GITHUb_OUTPUT"
+        outputs:
+            status-code: ${{steps.build.status}}
+   test-output:
+        runs-on: ubuntu-latest
+        needs: output-demo
+        steps:
+            - name: test the output
+              run : echo this is the output ${{needs.output-demo.status-code}}         
+
+   
+        
