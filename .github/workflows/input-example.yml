@@ -24,7 +24,7 @@ jobs:
         steps:
             - name : build
               id: build
-              run: echo "status=succes" >> $GITHUb_OUTPUT"
+              run: echo "status=succes" >> $GITHUb_OUTPUT
         outputs:
             status-code: ${{steps.build.status}}
    test-output:
